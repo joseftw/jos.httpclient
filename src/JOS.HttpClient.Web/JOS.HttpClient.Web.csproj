@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <UserSecretsId>05f7a9bd-938d-4826-91e3-12484abdcca5</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.0.0-preview3-19153-02" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\JOS.HttpClient.Common\JOS.HttpClient.Common.csproj" />
+    <ProjectReference Include="..\Versions\**\*.csproj" />
+  </ItemGroup>
+
+</Project>
