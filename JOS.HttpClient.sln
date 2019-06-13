@@ -27,9 +27,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JOS.HttpClient.Version6", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Versions", "Versions", "{BF222A47-DCF3-4270-BC74-6098F381070C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JOS.HttpClient.Version7", "src\versions\JOS.HttpClient.Version7\JOS.HttpClient.Version7.csproj", "{D0CBDD4A-1045-4AE4-A76B-7355B3E531D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JOS.HttpClient.Version7", "src\versions\JOS.HttpClient.Version7\JOS.HttpClient.Version7.csproj", "{D0CBDD4A-1045-4AE4-A76B-7355B3E531D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JOS.HttpClient.Version8", "src\Versions\JOS.HttpClient.Version8\JOS.HttpClient.Version8.csproj", "{3CADA47A-05EB-4903-A738-A3E238202AC0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JOS.HttpClient.Version8", "src\Versions\JOS.HttpClient.Version8\JOS.HttpClient.Version8.csproj", "{3CADA47A-05EB-4903-A738-A3E238202AC0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JOS.HttpClient.Version9", "src\Versions\JOS.HttpClient.Version9\JOS.HttpClient.Version9.csproj", "{ED0DE629-639A-4E9E-8265-67D6D48A5EBB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JOS.HttpClient.Tests", "test\JOS.HttpClient.Tests\JOS.HttpClient.Tests.csproj", "{B83AC3A8-D8AB-4C8F-9D01-0044E0C039F2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -89,6 +93,14 @@ Global
 		{3CADA47A-05EB-4903-A738-A3E238202AC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3CADA47A-05EB-4903-A738-A3E238202AC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3CADA47A-05EB-4903-A738-A3E238202AC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED0DE629-639A-4E9E-8265-67D6D48A5EBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED0DE629-639A-4E9E-8265-67D6D48A5EBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED0DE629-639A-4E9E-8265-67D6D48A5EBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED0DE629-639A-4E9E-8265-67D6D48A5EBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B83AC3A8-D8AB-4C8F-9D01-0044E0C039F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B83AC3A8-D8AB-4C8F-9D01-0044E0C039F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B83AC3A8-D8AB-4C8F-9D01-0044E0C039F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B83AC3A8-D8AB-4C8F-9D01-0044E0C039F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -103,6 +115,7 @@ Global
 		{1C3CC2E0-241A-4E69-BB3C-753A57E40B30} = {BF222A47-DCF3-4270-BC74-6098F381070C}
 		{D0CBDD4A-1045-4AE4-A76B-7355B3E531D9} = {BF222A47-DCF3-4270-BC74-6098F381070C}
 		{3CADA47A-05EB-4903-A738-A3E238202AC0} = {BF222A47-DCF3-4270-BC74-6098F381070C}
+		{ED0DE629-639A-4E9E-8265-67D6D48A5EBB} = {BF222A47-DCF3-4270-BC74-6098F381070C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {405EAE8A-519D-4A5F-ABA3-247B3277C9BC}

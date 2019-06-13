@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
 using JOSHttpClient.Common;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;

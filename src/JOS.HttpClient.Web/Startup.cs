@@ -7,6 +7,7 @@ using JOSHttpClient.Version5;
 using JOSHttpClient.Version6;
 using JOSHttpClient.Version7;
 using JOSHttpClient.Version8;
+using JOSHttpClient.Version9;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -26,7 +27,7 @@ namespace JOS.HttpClient.Web
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvcCore().AddNewtonsoftJson();
+            services.AddControllers().AddNewtonsoftJson();
             services.AddVersion0();
             services.AddVersion1();
             services.AddVersion2();
@@ -36,6 +37,7 @@ namespace JOS.HttpClient.Web
             services.AddVersion6();
             services.AddVersion7();
             services.AddVersion8();
+            services.AddVersion9();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -45,7 +47,12 @@ namespace JOS.HttpClient.Web
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseMvc();
+            app.UseRouting();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
+            });
         }
     }
 }

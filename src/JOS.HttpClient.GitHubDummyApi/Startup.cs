@@ -19,8 +19,7 @@ namespace JOS.HttpClient.GitHubDummyApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvcCore()
-                .AddNewtonsoftJson();
+            services.AddControllers().AddNewtonsoftJson();
 
             services.Configure<ApiBehaviorOptions>(options =>
             {
@@ -36,7 +35,12 @@ namespace JOS.HttpClient.GitHubDummyApi
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseMvc();
+            app.UseRouting();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
+            });
         }
     }
 }

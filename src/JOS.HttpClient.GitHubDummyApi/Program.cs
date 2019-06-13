@@ -1,4 +1,6 @@
 using System.IO;
+using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
@@ -14,16 +16,19 @@ namespace JOS.HttpClient.GitHubDummyApi
             CreateHostBuilder(args).Build().Run();
         }
 
-        public static IWebHostBuilder CreateHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
+        public static IWebHostBuilder CreateHostBuilder(string[] args)
+        {
+            return WebHost.CreateDefaultBuilder(args)
                 .UseKestrel(options =>
                 {
                     options.AllowSynchronousIO = true;
                 })
+                .UseUrls("http://localhost:5555", "https://localhost:5556")
                 .ConfigureAppConfiguration((hostingContext, config) => {
                     config.SetBasePath(Directory.GetCurrentDirectory());
                     config.AddCommandLine(args);
                 })
                 .UseStartup<Startup>();
+        }
     }
 }

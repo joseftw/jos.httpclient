@@ -14,6 +14,7 @@ using JOSHttpClient.Version5;
 using JOSHttpClient.Version6;
 using JOSHttpClient.Version7;
 using JOSHttpClient.Version8;
+using JOSHttpClient.Version9;
 using Microsoft.Extensions.DependencyInjection;
 using GetAllProjectsQuery = JOSHttpClient.Version0.GetAllProjectsQuery;
 
@@ -41,6 +42,7 @@ namespace JOS.HttpClient.Benchmark
             services.AddVersion6();
             services.AddVersion7();
             services.AddVersion8();
+            services.AddVersion9();
 
             _serviceProvider = services.BuildServiceProvider();
         }
@@ -105,6 +107,13 @@ namespace JOS.HttpClient.Benchmark
         public async Task<IReadOnlyCollection<Project>> Version8()
         {
             var getAllProjectsQuery = _serviceProvider.GetRequiredService<JOSHttpClient.Version8.GetAllProjectsQuery>();
+            return await getAllProjectsQuery.Execute();
+        }
+
+        [Benchmark(OperationsPerInvoke = 1)]
+        public async Task<IReadOnlyCollection<Project>> Version9()
+        {
+            var getAllProjectsQuery = _serviceProvider.GetRequiredService<JOSHttpClient.Version9.GetAllProjectsQuery>();
             return await getAllProjectsQuery.Execute();
         }
     }

@@ -7,12 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="BenchmarkDotNet" Version="0.11.4" />
-    <PackageReference Include="BenchmarkDotNet.Diagnostics.Windows" Version="0.11.4" />
-    <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.0.0-preview3.19153.1" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="3.0.0-preview3.19153.1" />
-    <PackageReference Include="Microsoft.Extensions.Hosting" Version="3.0.0-preview3.19153.1" />
-    <PackageReference Include="NSubstitute" Version="4.0.0" />
+    <PackageReference Include="BenchmarkDotNet" Version="0.11.5" />
+    <PackageReference Include="BenchmarkDotNet.Diagnostics.Windows" Version="0.11.5" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="3.0.0-preview6.19304.6" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.0.0-preview6.19304.6" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="3.0.0-preview6.19304.6" />
   </ItemGroup>
 
   <ItemGroup>
