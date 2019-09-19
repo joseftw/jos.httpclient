@@ -9,9 +9,8 @@ namespace JOS.HttpClient.GitHubDummyApi
     public class GitHubController : ControllerBase
     {
         [HttpGet("repositories")]
-        public async Task<IActionResult> Get()
+        public IActionResult Get()
         {
-            await Task.Delay(20);
             return new OkObjectResult(GitHubRepositoriesProvider.JsonItems);
         }
     }

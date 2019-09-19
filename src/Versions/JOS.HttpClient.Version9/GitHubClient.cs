@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
@@ -23,7 +24,7 @@ namespace JOSHttpClient.Version9
 
             using (var contentStream = await result.Content.ReadAsStreamAsync())
             {
-                return await JsonSerializer.ReadAsync<List<GitHubRepositoryDto>>(contentStream, DefaultJsonSerializerOptions.Options);
+                return await JsonSerializer.DeserializeAsync<List<GitHubRepositoryDto>>(contentStream, DefaultJsonSerializerOptions.Options);
             }
         }
 

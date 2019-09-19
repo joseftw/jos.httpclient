@@ -20,9 +20,7 @@ namespace JOS.HttpClient.Benchmark
 {
     [MemoryDiagnoser]
     [CoreJob]
-    [InvocationCount(16)]
-    [WarmupCount(10)]
-    [IterationCount(100)]
+    [MinIterationTime(1000)]
     public class JOSHttpClientBenchmark
     {
         private IServiceProvider _serviceProvider;

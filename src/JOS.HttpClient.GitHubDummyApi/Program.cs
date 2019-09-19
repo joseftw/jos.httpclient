@@ -1,6 +1,4 @@
 using System.IO;
-using System.Linq;
-using System.Reflection;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
@@ -23,7 +21,7 @@ namespace JOS.HttpClient.GitHubDummyApi
                 {
                     options.AllowSynchronousIO = true;
                 })
-                .UseUrls("http://localhost:5555", "https://localhost:5556")
+                .UseUrls("http://localhost:5555")
                 .ConfigureAppConfiguration((hostingContext, config) => {
                     config.SetBasePath(Directory.GetCurrentDirectory());
                     config.AddCommandLine(args);
