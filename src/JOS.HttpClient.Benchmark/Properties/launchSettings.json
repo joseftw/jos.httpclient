@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "JOS.HttpClient.Benchmark": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

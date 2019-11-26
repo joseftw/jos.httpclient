@@ -1,4 +1,7 @@
-﻿using BenchmarkDotNet.Running;
+﻿using BenchmarkDotNet.Configs;
+using BenchmarkDotNet.Jobs;
+using BenchmarkDotNet.Running;
+using BenchmarkDotNet.Toolchains.CsProj;
 
 namespace JOS.HttpClient.Benchmark
 {
@@ -6,7 +9,8 @@ namespace JOS.HttpClient.Benchmark
     {
         public static void Main(string[] args)
         {
-            var summary = BenchmarkRunner.Run<JOSGetAllProjectsQueryBenchmark>();
+            var summary1 = BenchmarkRunner.Run<JOSHttpClientBenchmark>();
+            var summary2 = BenchmarkRunner.Run<JOSGetAllProjectsQueryBenchmark>();
         }
     }
 }

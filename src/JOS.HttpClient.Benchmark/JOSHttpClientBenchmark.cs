@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Jobs;
 using JOSHttpClient.Common;
 using JOSHttpClient.Version0;
 using JOSHttpClient.Version1;
@@ -19,8 +20,8 @@ using GitHubClient = JOSHttpClient.Version0.GitHubClient;
 namespace JOS.HttpClient.Benchmark
 {
     [MemoryDiagnoser]
-    [CoreJob]
-    [MinIterationTime(1000)]
+    [SimpleJob(RuntimeMoniker.NetCoreApp31, invocationCount: 50)]
+    [HtmlExporter]
     public class JOSHttpClientBenchmark
     {
         private IServiceProvider _serviceProvider;

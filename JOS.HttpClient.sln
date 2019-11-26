@@ -33,8 +33,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JOS.HttpClient.Version8", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JOS.HttpClient.Version9", "src\Versions\JOS.HttpClient.Version9\JOS.HttpClient.Version9.csproj", "{ED0DE629-639A-4E9E-8265-67D6D48A5EBB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JOS.HttpClient.Tests", "test\JOS.HttpClient.Tests\JOS.HttpClient.Tests.csproj", "{B83AC3A8-D8AB-4C8F-9D01-0044E0C039F2}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -97,10 +95,6 @@ Global
 		{ED0DE629-639A-4E9E-8265-67D6D48A5EBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED0DE629-639A-4E9E-8265-67D6D48A5EBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED0DE629-639A-4E9E-8265-67D6D48A5EBB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B83AC3A8-D8AB-4C8F-9D01-0044E0C039F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B83AC3A8-D8AB-4C8F-9D01-0044E0C039F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B83AC3A8-D8AB-4C8F-9D01-0044E0C039F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B83AC3A8-D8AB-4C8F-9D01-0044E0C039F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
