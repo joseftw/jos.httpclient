@@ -25,6 +25,8 @@ namespace JOS.HttpClient.GitHubDummyApi
             {
                 options.SuppressModelStateInvalidFilter = true;
             });
+
+            services.AddResponseCompression();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -35,6 +37,7 @@ namespace JOS.HttpClient.GitHubDummyApi
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseResponseCompression();
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>

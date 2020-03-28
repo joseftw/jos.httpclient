@@ -15,7 +15,6 @@ using JOSHttpClient.Version7;
 using JOSHttpClient.Version8;
 using JOSHttpClient.Version9;
 using Microsoft.Extensions.DependencyInjection;
-using GetAllProjectsQuery = JOSHttpClient.Version0.GetAllProjectsQuery;
 
 namespace JOS.HttpClient.Benchmark
 {
@@ -46,7 +45,7 @@ namespace JOS.HttpClient.Benchmark
         [Benchmark(Baseline = true)]
         public IReadOnlyCollection<Project> Version0()
         {
-            var getAllProjectsQuery = _serviceProvider.GetRequiredService<GetAllProjectsQuery>();
+            var getAllProjectsQuery = _serviceProvider.GetRequiredService<JOSHttpClient.Version0.GetAllProjectsQuery>();
             return getAllProjectsQuery.Execute();
         }
 

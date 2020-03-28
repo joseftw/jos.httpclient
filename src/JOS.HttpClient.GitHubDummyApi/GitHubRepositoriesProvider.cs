@@ -26,7 +26,7 @@ namespace JOS.HttpClient.GitHubDummyApi
                 Items.Add(parsed);
             }
 
-            JsonItems = Items[3];
+            JsonItems = Items[2];
         }
 
         public static object JsonItems { get; private set; }
