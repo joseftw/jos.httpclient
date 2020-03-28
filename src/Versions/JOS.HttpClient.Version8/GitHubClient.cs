@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 using JOSHttpClient.Common;
 using Newtonsoft.Json;
@@ -19,10 +20,10 @@ namespace JOSHttpClient.Version8
             _projectDeserializer = projectDeserializer ?? throw new ArgumentNullException(nameof(projectDeserializer));
         }
 
-        public async Task<IReadOnlyCollection<GitHubRepositoryDto>> GetRepositories()
+        public async Task<IReadOnlyCollection<GitHubRepositoryDto>> GetRepositories(CancellationToken cancellationToken)
         {
             var request = CreateRequest();
-            var result = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead).ConfigureAwait(false);
+            var result = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
 
             using (var streamReader = new StreamReader(await result.Content.ReadAsStreamAsync()))
             using (var jsonTextReader = new JsonTextReader(streamReader))

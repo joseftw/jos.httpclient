@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Net;
+using System.Threading;
 using System.Threading.Tasks;
 using JOSHttpClient.Version3;
 using Microsoft.AspNetCore.Mvc;
@@ -19,9 +20,9 @@ namespace JOS.HttpClient.Web
         }   
 
         [HttpGet("")]
-        public async Task<IActionResult> GetAllProjects()
+        public async Task<IActionResult> GetAllProjects(CancellationToken cancellationToken)
         {
-            var result = await _getAllProjectsQuery.Execute().ConfigureAwait(false);
+            var result = await _getAllProjectsQuery.Execute(cancellationToken).ConfigureAwait(false);
             var response = new ApiResponse<ProjectResponseDto>(
                 (int)HttpStatusCode.OK,
                 new ProjectResponseDto(result.Select(x => new ProjectDto(x.Name, x.Url, x.Stars)).OrderByDescending(x => x.Stars).ToArray()));

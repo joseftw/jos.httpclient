@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Jobs;
@@ -55,63 +56,63 @@ namespace JOS.HttpClient.Benchmark
         public async Task<IReadOnlyCollection<GitHubRepositoryDto>> Version1()
         {
             var gitHubClient = _serviceProvider.GetRequiredService<JOSHttpClient.Version1.GitHubClient>();
-            return await gitHubClient.GetRepositories();
+            return await gitHubClient.GetRepositories(CancellationToken.None);
         }
 
         [Benchmark]
         public async Task<IReadOnlyCollection<GitHubRepositoryDto>> Version2()
         {
             var gitHubClient = _serviceProvider.GetRequiredService<JOSHttpClient.Version2.GitHubClient>();
-            return await gitHubClient.GetRepositories();
+            return await gitHubClient.GetRepositories(CancellationToken.None);
         }
 
         [Benchmark]
         public async Task<IReadOnlyCollection<GitHubRepositoryDto>> Version3()
         {
             var gitHubClient = _serviceProvider.GetRequiredService<JOSHttpClient.Version3.GitHubClient>();
-            return await gitHubClient.GetRepositories();
+            return await gitHubClient.GetRepositories(CancellationToken.None);
         }
 
         [Benchmark]
         public async Task<IReadOnlyCollection<GitHubRepositoryDto>> Version4()
         {
             var gitHubClient = _serviceProvider.GetRequiredService<JOSHttpClient.Version4.GitHubClient>();
-            return await gitHubClient.GetRepositories();
+            return await gitHubClient.GetRepositories(CancellationToken.None);
         }
 
         [Benchmark]
         public async Task<IReadOnlyCollection<GitHubRepositoryDto>> Version5()
         {
             var gitHubClient = _serviceProvider.GetRequiredService<JOSHttpClient.Version5.GitHubClient>();
-            return await gitHubClient.GetRepositories();
+            return await gitHubClient.GetRepositories(CancellationToken.None);
         }
 
         [Benchmark]
         public async Task<IReadOnlyCollection<GitHubRepositoryDto>> Version6()
         {
             var gitHubClient = _serviceProvider.GetRequiredService<JOSHttpClient.Version6.GitHubClient>();
-            return await gitHubClient.GetRepositories();
+            return await gitHubClient.GetRepositories(CancellationToken.None);
         }
 
         [Benchmark]
         public async Task<IReadOnlyCollection<GitHubRepositoryDto>> Version7()
         {
             var gitHubClient = _serviceProvider.GetRequiredService<JOSHttpClient.Version7.GitHubClient>();
-            return await gitHubClient.GetRepositories();
+            return await gitHubClient.GetRepositories(CancellationToken.None);
         }
 
         [Benchmark]
         public async Task<IReadOnlyCollection<GitHubRepositoryDto>> Version8()
         {
             var gitHubClient = _serviceProvider.GetRequiredService<JOSHttpClient.Version8.GitHubClient>();
-            return await gitHubClient.GetRepositories();
+            return await gitHubClient.GetRepositories(CancellationToken.None);
         }
 
         [Benchmark]
         public async Task<IReadOnlyCollection<GitHubRepositoryDto>> Version9()
         {
             var gitHubClient = _serviceProvider.GetRequiredService<JOSHttpClient.Version9.GitHubClient>();
-            return await gitHubClient.GetRepositories();
+            return await gitHubClient.GetRepositories(CancellationToken.None);
         }
     }
 }

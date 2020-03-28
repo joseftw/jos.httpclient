@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using JOSHttpClient.Common;
 using JOSHttpClient.Common.Domain;
@@ -16,9 +17,9 @@ namespace JOSHttpClient.Version3
             _gitHubClient = gitHubClient ?? throw new ArgumentNullException(nameof(gitHubClient));
         }
 
-        public async Task<IReadOnlyCollection<Project>> Execute()
+        public async Task<IReadOnlyCollection<Project>> Execute(CancellationToken cancellationToken)
         {
-            var response = await _gitHubClient.GetRepositories().ConfigureAwait(false);
+            var response = await _gitHubClient.GetRepositories(cancellationToken).ConfigureAwait(false);
             return response.Select(x => new Project(x.Name, x.Url, x.Stars)).ToArray();
         }
     }
