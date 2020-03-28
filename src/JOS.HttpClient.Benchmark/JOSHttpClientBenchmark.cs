@@ -49,7 +49,7 @@ namespace JOS.HttpClient.Benchmark
         public IReadOnlyCollection<GitHubRepositoryDto> Version0()
         {
             var gitHubClient = _serviceProvider.GetRequiredService<GitHubClient>();
-            return gitHubClient.GetRepositories();
+            return gitHubClient.GetRepositories(CancellationToken.None);
         }
 
         [Benchmark]

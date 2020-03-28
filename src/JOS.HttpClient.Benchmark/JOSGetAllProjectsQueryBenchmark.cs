@@ -47,7 +47,7 @@ namespace JOS.HttpClient.Benchmark
         public IReadOnlyCollection<Project> Version0()
         {
             var getAllProjectsQuery = _serviceProvider.GetRequiredService<JOSHttpClient.Version0.GetAllProjectsQuery>();
-            return getAllProjectsQuery.Execute();
+            return getAllProjectsQuery.Execute(CancellationToken.None);
         }
 
         [Benchmark]

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Net;
+using System.Threading;
 using JOSHttpClient.Version0;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,7 +21,7 @@ namespace JOS.HttpClient.Web
         [HttpGet("")]
         public IActionResult GetAllProjects()
         {
-            var result = _getAllProjectsQuery.Execute();
+            var result = _getAllProjectsQuery.Execute(CancellationToken.None);
             var response = new ApiResponse<ProjectResponseDto>(
                 (int)HttpStatusCode.OK,
                 new ProjectResponseDto(result.Select(x => new ProjectDto(x.Name, x.Url, x.Stars)).OrderByDescending(x => x.Stars).ToArray()));
