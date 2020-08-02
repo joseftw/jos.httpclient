@@ -8,6 +8,7 @@ using JOSHttpClient.Version6;
 using JOSHttpClient.Version7;
 using JOSHttpClient.Version8;
 using JOSHttpClient.Version9;
+using JOSHttpClient.Version10;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -38,6 +39,7 @@ namespace JOS.HttpClient.Web
             services.AddVersion7();
             services.AddVersion8();
             services.AddVersion9();
+            services.AddVersion10();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

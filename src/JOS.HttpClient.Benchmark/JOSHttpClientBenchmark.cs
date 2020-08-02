@@ -15,6 +15,7 @@ using JOSHttpClient.Version6;
 using JOSHttpClient.Version7;
 using JOSHttpClient.Version8;
 using JOSHttpClient.Version9;
+using JOSHttpClient.Version10;
 using Microsoft.Extensions.DependencyInjection;
 using GitHubClient = JOSHttpClient.Version0.GitHubClient;
 
@@ -41,6 +42,7 @@ namespace JOS.HttpClient.Benchmark
             services.AddVersion7();
             services.AddVersion8();
             services.AddVersion9();
+            services.AddVersion10();
 
             _serviceProvider = services.BuildServiceProvider();
         }
@@ -112,6 +114,13 @@ namespace JOS.HttpClient.Benchmark
         public async Task<IReadOnlyCollection<GitHubRepositoryDto>> Version9()
         {
             var gitHubClient = _serviceProvider.GetRequiredService<JOSHttpClient.Version9.GitHubClient>();
+            return await gitHubClient.GetRepositories(CancellationToken.None);
+        }
+
+        [Benchmark]
+        public async Task<IReadOnlyCollection<GitHubRepositoryDto>> Version10()
+        {
+            var gitHubClient = _serviceProvider.GetRequiredService<JOSHttpClient.Version10.GitHubClient>();
             return await gitHubClient.GetRepositories(CancellationToken.None);
         }
     }
