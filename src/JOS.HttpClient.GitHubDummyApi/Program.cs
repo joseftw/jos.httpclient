@@ -11,7 +11,7 @@ namespace JOS.HttpClient.GitHubDummyApi
         public static async Task Main(string[] args)
         {
             await GitHubRepositoriesProvider.Initialize();
-            CreateHostBuilder(args).Build().Run();
+            await CreateHostBuilder(args).Build().RunAsync();
         }
 
         public static IWebHostBuilder CreateHostBuilder(string[] args)
