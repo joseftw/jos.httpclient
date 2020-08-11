@@ -9,15 +9,14 @@
   <ItemGroup>
     <PackageReference Include="BenchmarkDotNet" Version="0.12.1" />
     <PackageReference Include="BenchmarkDotNet.Diagnostics.Windows" Version="0.12.1" />
-    <PackageReference Include="Microsoft.Extensions.Hosting" Version="3.1.6" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0-preview.7.20364.11" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.8" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="3.1.6" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.6" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="5.0.0-preview.7.20364.11" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0-preview.7.20364.11" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Versions\JOS.HttpClient.Version0\JOS.HttpClient.Version0.csproj" />
-    <ProjectReference Include="..\Versions\JOS.HttpClient.Version10\JOS.HttpClient.Version10.csproj" />
     <ProjectReference Include="..\Versions\JOS.HttpClient.Version1\JOS.HttpClient.Version1.csproj" />
     <ProjectReference Include="..\Versions\JOS.HttpClient.Version2\JOS.HttpClient.Version2.csproj" />
     <ProjectReference Include="..\Versions\JOS.HttpClient.Version3\JOS.HttpClient.Version3.csproj" />
@@ -27,6 +26,7 @@
     <ProjectReference Include="..\Versions\JOS.HttpClient.Version7\JOS.HttpClient.Version7.csproj" />
     <ProjectReference Include="..\Versions\JOS.HttpClient.Version8\JOS.HttpClient.Version8.csproj" />
     <ProjectReference Include="..\Versions\JOS.HttpClient.Version9\JOS.HttpClient.Version9.csproj" />
+    <ProjectReference Include="..\Versions\JOS.HttpClient.Version10\JOS.HttpClient.Version10.csproj" />
   </ItemGroup>
 
   <ItemGroup>
