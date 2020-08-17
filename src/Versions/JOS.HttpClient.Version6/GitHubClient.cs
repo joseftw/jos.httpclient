@@ -23,14 +23,15 @@ namespace JOSHttpClient.Version6
         public async Task<IReadOnlyCollection<GitHubRepositoryDto>> GetRepositories(CancellationToken cancellationToken)
         {
             var request = CreateRequest();
-            var result = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseContentRead, cancellationToken).ConfigureAwait(false);
-
-            using (var responseStream = await result.Content.ReadAsStreamAsync())
+            using (var result = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseContentRead, cancellationToken).ConfigureAwait(false))
             {
-                using (var streamReader = new StreamReader(responseStream))
-                using (var jsonTextReader = new JsonTextReader(streamReader))
+                using (var responseStream = await result.Content.ReadAsStreamAsync())
                 {
-                    return _jsonSerializer.Deserialize<List<GitHubRepositoryDto>>(jsonTextReader);
+                    using (var streamReader = new StreamReader(responseStream))
+                    using (var jsonTextReader = new JsonTextReader(streamReader))
+                    {
+                        return _jsonSerializer.Deserialize<List<GitHubRepositoryDto>>(jsonTextReader);
+                    }
                 }
             }
         }
