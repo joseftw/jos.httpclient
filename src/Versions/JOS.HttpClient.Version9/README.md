@@ -10,14 +10,15 @@ public class GitHubClient : IGitHubClient
         _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
     }
 
-    public async Task<IReadOnlyCollection<GitHubRepositoryDto>> GetRepositories()
+    public async Task<IReadOnlyCollection<GitHubRepositoryDto>> GetRepositories(CancellationToken cancellationToken)
     {
         var request = CreateRequest();
-        var result = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead).ConfigureAwait(false);
-
-        using (var contentStream = await result.Content.ReadAsStreamAsync())
+        using (var result = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
         {
-            return await JsonSerializer.ReadAsync<List<GitHubRepositoryDto>>(contentStream, DefaultJsonSerializerOptions.Options);
+            using (var contentStream = await result.Content.ReadAsStreamAsync())
+            {
+                return await JsonSerializer.DeserializeAsync<List<GitHubRepositoryDto>>(contentStream, DefaultJsonSerializerOptions.Options, cancellationToken);
+            }
         }
     }
 
@@ -27,5 +28,3 @@ public class GitHubClient : IGitHubClient
     }
 }
 ```
-
-TODO talk about ResponseHeadersRead and stuff.
