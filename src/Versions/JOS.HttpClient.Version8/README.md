@@ -12,23 +12,23 @@ public class GitHubClient : IGitHubClient
         _jsonSerializer = jsonSerializer ?? throw new ArgumentNullException(nameof(jsonSerializer));
     }
 
-    public async Task<IReadOnlyCollection<GitHubRepositoryDto>> GetRepositories()
+    public async Task<IReadOnlyCollection<GitHubRepositoryDto>> GetRepositories(CancellationToken cancellationToken)
     {
         var request = CreateRequest();
-        var result = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead).ConfigureAwait(false);
 
-        using (var streamReader = new StreamReader(await result.Content.ReadAsStreamAsync()))
-        using (var jsonTextReader = new JsonTextReader(streamReader))
+        using (var result = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
         {
-            return _jsonSerializer.Deserialize<List<GitHubRepositoryDto>>(jsonTextReader);
+            using (var streamReader = new StreamReader(await result.Content.ReadAsStreamAsync()))
+            using (var jsonTextReader = new JsonTextReader(streamReader))
+            {
+                return _projectDeserializer.Deserialize(jsonTextReader);
+            }
         }
     }
-
+    
     private static HttpRequestMessage CreateRequest()
     {
         return new HttpRequestMessage(HttpMethod.Get, "/api/github/repositories");
     }
 }
 ```
-
-TODO talk about ResponseHeadersRead and stuff.
