@@ -15,12 +15,16 @@ public class GitHubClient : IGitHubClient
     public async Task<IReadOnlyCollection<GitHubRepositoryDto>> GetRepositories()
     {
         var request = CreateRequest();
-        var result = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead).ConfigureAwait(false);
-
-        using (var streamReader = new StreamReader(await result.Content.ReadAsStreamAsync()))
-        using (var jsonTextReader = new JsonTextReader(streamReader))
+        using (var result = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
         {
-            return _jsonSerializer.Deserialize<List<GitHubRepositoryDto>>(jsonTextReader);
+            using (var responseStream = await result.Content.ReadAsStreamAsync())
+            {
+                using (var streamReader = new StreamReader(responseStream))
+                using (var jsonTextReader = new JsonTextReader(streamReader))
+                {
+                    return _jsonSerializer.Deserialize<List<GitHubRepositoryDto>>(jsonTextReader);
+                }
+            }
         }
     }
 
@@ -30,5 +34,3 @@ public class GitHubClient : IGitHubClient
     }
 }
 ```
-
-TODO talk about ResponseHeadersRead and stuff.
