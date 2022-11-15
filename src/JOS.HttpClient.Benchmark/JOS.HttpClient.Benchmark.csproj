@@ -2,17 +2,17 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFrameworks>netcoreapp3.1</TargetFrameworks>
-    <LangVersion>8.0</LangVersion>
+    <TargetFramework>net7.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="BenchmarkDotNet" Version="0.12.1" />
-    <PackageReference Include="BenchmarkDotNet.Diagnostics.Windows" Version="0.12.1" />
-    <PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0-rc.1.20451.14" />
+    <PackageReference Include="BenchmarkDotNet" Version="0.13.2" />
+    <PackageReference Include="BenchmarkDotNet.Diagnostics.Windows" Version="0.13.2" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.8" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="5.0.0-rc.1.20451.14" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0-rc.1.20451.14" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
   </ItemGroup>
 
   <ItemGroup>
